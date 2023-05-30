@@ -9,7 +9,7 @@ Setting up a virtual environment is recommanded to ensure the correct dependenci
 * Python 3.x installed on your system.
 * Pip package manager installed.
 
-#### **I. Set up the Vitual enviorement **
+### **I. Set up the Vitual enviorement **
 **1. Clone the repository to your local machine using the following command:**
 
 ``` cmd
@@ -54,18 +54,19 @@ python script.py
 deactivate
 ```
 
-#### **I. Airflow:**
+### I. Airflow:
 ***source: *** [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 
 **1. Set Airflow Home (optional):**
   * For windows 
 ```bash
-export AIRFLOW_HOME=~/airflow
+set AIRFLOW_HOME=~/airflow
 ```
   * For macOS/Linux:
 ```shell
-set AIRFLOW_HOME=~/airflow
+ export AIRFLOW_HOME=~/airflow
 ```
+**2. Link Airflow to workspace:**
 
 
 
