@@ -9,6 +9,7 @@ Setting up a virtual environment is recommanded to ensure the correct dependenci
 * Python 3.x installed on your system.
 * Pip package manager installed.
 
+#### **I. Set up the Vitual enviorement **
 **1. Clone the repository to your local machine using the following command:**
 
 ``` cmd
@@ -16,7 +17,7 @@ git clone https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject.g
 ```
 
 **2. Navigate to the project directory:**
-```cmd
+```bash
 cd <project_directory>
 ```
 
@@ -28,11 +29,11 @@ python -m venv venv_name
 
 **4. Activate the virtual environment:**
   * For windows 
-```cmd
+```bash
 venv_name\Scripts\activate
 ```
   * For macOS/Linux:
-```cmd
+```shell
 source venv_name/bin/activate
 ```
 
@@ -51,6 +52,19 @@ python script.py
 **7. After you have finished working with the project, you can deactivate the virtual environment by running the following command:**
 ```cmd
 deactivate
+```
+
+#### **I. Airflow:**
+***source: *** [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
+
+**1. Set Airflow Home (optional):**
+  * For windows 
+```bash
+export AIRFLOW_HOME=~/airflow
+```
+  * For macOS/Linux:
+```shell
+set AIRFLOW_HOME=~/airflow
 ```
 
 
