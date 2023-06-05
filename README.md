@@ -57,18 +57,18 @@ deactivate
 ```
 
 ### I. Airflow:
-***source: *** [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
+**source:**  [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 
-**1. Set Airflow Home (optional):**
-  * For windows 
-```bash
-set AIRFLOW_HOME=~/airflow
-```
-  * For macOS/Linux:
+**1. Set Airflow Home:**
 ```shell
- export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME=.
 ```
-**2. Link Airflow to workspace:**
+
+**2. Initiate a SQLite database for Airflow in the workspace:**
+```shell
+airflow db init
+```
+
 
 
 
