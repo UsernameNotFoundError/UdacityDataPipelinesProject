@@ -61,12 +61,23 @@ deactivate
 
 **1. Set Airflow Home:**
 ```shell
-export AIRFLOW_HOME=.
+export AIRFLOW_HOME=$(pwd)
 ```
 
 **2. Initiate a SQLite database for Airflow in the workspace:**
 ```shell
 airflow db init
+```
+
+**3. Create user:**
+```shell
+airflow users create --username admin1 --firstname firstname --lastname lastname --role Admin --email email@example.com
+```
+You will be asked to created a password (please remember your password or keep it somewhere safe. It will be be needed to log in)
+
+**4. Lunch webserver:**
+```shell
+airflow webserver -p 8080 &
 ```
 
 
