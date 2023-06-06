@@ -70,9 +70,9 @@ airflow users create --username admin1 --firstname firstname --lastname lastname
 ```
 You will be asked to created a password (please remember your password or keep it somewhere safe. It will be be needed to log in)
 
-**4. Lunch webserver:**
+**4. Lunch webserver and the scheduler:**
 ```shell
-airflow webserver -p 8080 &
+airflow scheduler & airflow webserver
 ```
 
 
