@@ -10,7 +10,7 @@ Setting up a virtual environment is recommanded to ensure the correct dependenci
 * Pip package manager installed.
 * Ubuntu or WSL installed
 
-### **I. Set up the Vitual environment **
+### I. Set up the Vitual environment 
 **3. Navigate to the project directory (or create one):**
 ```bash
 cd <project_directory>
@@ -54,7 +54,7 @@ python script.py
 deactivate
 ```
 
-### I. Airflow:
+### II. Airflow:
 **source:**  [Apache Airflow Documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 
 **1. Set Airflow Home:**
