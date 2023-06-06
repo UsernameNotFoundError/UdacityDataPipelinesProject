@@ -74,6 +74,10 @@ You will be asked to created a password (please remember your password or keep i
 ```shell
 airflow scheduler & airflow webserver
 ```
+The web server and scheduler need to be run simultaneously.
+
+
+
 
 
 
