@@ -6,9 +6,9 @@ Create high grade data pipelines with Airflow.
 Setting up a virtual environment is recommanded to ensure the correct dependencies are installed and isolated from your system's global Python environment. Please follow the instructions below to set up the virtual environment and run the script.
 
 ### Prerequisites
-* Python *3.7* installed on your system.
+* Python **3.7** installed on your system.
 * Pip package manager installed.
-* *Ubuntu* or WSL installed
+* **Ubuntu** or WSL installed
 * Patience 
 
 ### I. Set up the Vitual environment 
