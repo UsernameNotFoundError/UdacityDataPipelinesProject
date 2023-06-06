@@ -41,12 +41,9 @@ pip3.7 install "apache-airflow==2.6.1" --constraint "https://raw.githubuserconte
 ```
 P.S: (Not recommanded) If you're using another python version please refer to the apatche [airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html). 
 
-
-//////////////////// HERE //////////////////////////
-**6. Once the dependencies are installed, you can now run the script using the following command:**
-
-```cmd
-python script.py
+**6. Once the dependencies are installed, you can now run the extra requirements:**
+```shell
+pip3.7 install -r requirements.txt
 ```
 
 **7. After you have finished working with the project, you can deactivate the virtual environment by running the following command:**
