@@ -8,7 +8,8 @@ Setting up a virtual environment is recommanded to ensure the correct dependenci
 ### Prerequisites
 * Python *3.7* installed on your system.
 * Pip package manager installed.
-* Ubuntu or WSL installed
+* *Ubuntu* or WSL installed
+* Patience 
 
 ### I. Set up the Vitual environment 
 **3. Navigate to the project directory (or create one):**
@@ -23,12 +24,11 @@ git clone https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject.g
 **3. Create a virtual environment using the venv module. Run the following command:**
 
 ```cmd
-python3.10 -m venv venv_name
+python3.7 -m venv venv_name
 ```
-PS: in this example we are using python3.10, feel free to use other version that are compatible with [airflow](https://airflow.apache.org/docs/apache-airflow/stable/installation/prerequisites.html)
+PS: in this example we are using python3.7, feel free to use other version (not recommanded) that are compatible with [airflow](https://airflow.apache.org/docs/apache-airflow/stable/installation/prerequisites.html)
 
 **4. Activate the virtual environment:**
-  * **For Linux**:
 ```shell
 source venv_name/bin/activate
 ```
@@ -37,9 +37,9 @@ PS: To desactivate the virtual environment use the `deactivate` command.
 **5. Install apache airflow and its required dependencies using pip:**
 
 ```shell
-pip3.10 install "apache-airflow==2.6.1" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.1/constraints-3.10.txt"
+pip3.7 install "apache-airflow==2.6.1" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.1/constraints-3.7.txt"
 ```
-P.S: If you're usinf another python version please refer to the apatche [airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html). 
+P.S: (Not recommanded) If you're using another python version please refer to the apatche [airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/start.html). 
 
 
 //////////////////// HERE //////////////////////////
