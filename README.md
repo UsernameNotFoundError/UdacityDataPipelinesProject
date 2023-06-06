@@ -11,15 +11,13 @@ Setting up a virtual environment is recommanded to ensure the correct dependenci
 * Ubuntu or WSL installed
 
 ### **I. Set up the Vitual environment **
-**1. Clone the repository to your local machine using the following command:**
-
-``` cmd
-git clone https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject.git
-```
-
-**2. Navigate to the project directory:**
+**3. Navigate to the project directory (or create one):**
 ```bash
 cd <project_directory>
+```
+**2. Clone the repository to your local machine using the following command:**
+``` cmd
+git clone https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject.git
 ```
 
 **3. Create a virtual environment using the venv module. Run the following command:**
