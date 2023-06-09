@@ -58,6 +58,7 @@ deactivate
 ```shell
 export AIRFLOW_HOME=$(pwd)
 ```
+P.S: make sure to check AIRFLOW_HOME each time before running airflow
 
 **2. Initiate a SQLite database for Airflow in the workspace:**
 ```shell
@@ -76,9 +77,13 @@ airflow scheduler & airflow webserver
 ```
 The web server and scheduler need to be run simultaneously.
 
+## The pipeline:
 
+### Prerequisites
+* Create an IAM User in AWS
+* Configure Redshift Serverless
 
-
+**1. Connect Airflow with AWS:
 
 
 
