@@ -84,7 +84,10 @@ The web server and scheduler need to be run simultaneously.
 * Configure Redshift Serverless
 
 **1. Connect Airflow with AWS:
- <p align="center" width="100%"> <img width="60%" src="https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject/blob/master/airflowaws.png"> </p>
+* On the navigation bar go to: Admin > Connections > "+" (found at teh top left)
+* Input your credentials and parameters as shown below:
+
+ <p align="center" width="100%"> <img width="100%" src="https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject/blob/master/airflowaws.png"> </p>
 
 
 
