@@ -95,7 +95,19 @@ The web server and scheduler need to be run simultaneously.
 
  <p align="center" width="100%"> <img width="100%" src="https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject/blob/master/airflowredshift.PNG"> </p>
 
+**2. Save the connections:**
 
+* For aws:
+```shell
+airflow connections get aws_credentials -o json 
+```
+* For redshift:
+```shell
+airflow connections get redshift -o json 
+```
 
-
- 
+From the string show copy the value after "get_uri". Then create a file: `set_connections.sh` and paste these lines bellow:
+```shell
+airflow connections add aws_credentials --conn-uri '<COPIED_LINE>'
+airflow connections add redshift --conn-uri '<COPIED_LINE>'
+```

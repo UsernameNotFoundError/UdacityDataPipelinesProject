@@ -32,15 +32,23 @@ begin_task = DummyOperator(
             dag=dag,
 )
 
+# Change Bucket and Key if necessary
 stage_events_task = StageToRedshiftOperator(
             task_id="Stage_events",
-            redshift_conn_id = "redshift"
-            aws_credentials_id = "aws_credentials"
+            redshift_conn_id = "redshift",
+            aws_credentials_id = "aws_credentials",
+            s3_bucket_name = "airflow-bucket-xx",
+            s3_key = "data-pipelines/project/log-data/",
             dag=dag,
 )
 
+# Change Bucket and Key if necessary
 stage_songs_task = StageToRedshiftOperator(
             task_id="Stage_songs",
+            redshift_conn_id = "redshift",
+            aws_credentials_id = "aws_credentials",
+            s3_bucket_name = "airflow-bucket-xx",
+            s3_key = "data-pipelines/project/song-data/",
             dag=dag,
 )
 
