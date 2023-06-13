@@ -1,24 +1,54 @@
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
+# Get credentials
+from airflow.secrets.metastore import MetastoreBackend
 
 class StageToRedshiftOperator(BaseOperator):
-    ui_color = '#358140'
+    """Redshift operator 
+    see here for more infos:
+    https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/_modules/airflow/providers/amazon/aws/transfers/s3_to_redshift.html
+    """
+    ui_color = '#78888'  # Color
 
     @apply_defaults
-    def __init__(self,
-                 # Define your operators params (with defaults) here
-                 # Example:
-                 # redshift_conn_id=your-connection-name
-                 *args, **kwargs):
+    def __init__(
+            self,
+            redshift_conn_id="",
+            aws_credentials_id="",
+            sql_command="",
+            s3_bucket_name = "",
+            s3_key = "",
+            *args, 
+            **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+        self.redshift_conn_id = redshift_conn_id
+        self.aws_credentials_id = aws_credentials_id
+        self.s3_bucket_name = s3_bucket_name
+        self.s3_key = s3_key
+        self.sql_command = \
+                f"""
+                COPY staging_songs FROM 's3://{self.s3_bucket_name }/{self.s3_key}' 
+                CREDENTIALS 'aws_iam_role={self.aws_credentials_id}'
+                FORMAT AS json 'auto'
+                TRUNCATECOLUMNS
+                compupdate off region 'us-east-1';
+                """\
+                if sql_command else sql_command 
+        
 
-        super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
-        # Map params here
-        # Example:
-        # self.conn_id = conn_id
-
-    def execute(self, context):
-        self.log.info('StageToRedshiftOperator not implemented yet')
+    def execute(self, context : dict) -> None:
+        """Every operator must have an execute function
+        _____
+        arg: 
+            - context : contains information abou the task (the execution time, configuration, ...)
+        """
+        self.log.info("Copying data from S3 to Redshift")
+        redshift_hook = PostgresHook("redshift")
+        redshift_hook.run(self.sql_command)
+        
+        self.log.info("Finished Copying data from S3 to Redshift")
 
 
 
