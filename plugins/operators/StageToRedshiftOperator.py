@@ -1,8 +1,7 @@
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-# Get credentials
-from airflow.secrets.metastore import MetastoreBackend
+
 
 class StageToRedshiftOperator(BaseOperator):
     """Redshift operator 
@@ -44,11 +43,15 @@ class StageToRedshiftOperator(BaseOperator):
         arg: 
             - context : contains information abou the task (the execution time, configuration, ...)
         """
-        self.log.info("Copying data from S3 to Redshift")
-        redshift_hook = PostgresHook("redshift")
-        redshift_hook.run(self.sql_command)
+        try:
+            self.log.info("Copying data from S3 to Redshift")
+            redshift_hook = PostgresHook("redshift")
+            redshift_hook.run(self.sql_command)
+            self.log.info("Finished Copying data from S3 to Redshift")
+        except Exception as e:
+            self.log.info(f"Error while Copying data from S3 to Redshift:\n{e}")
         
-        self.log.info("Finished Copying data from S3 to Redshift")
+        
 
 
 

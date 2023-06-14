@@ -111,3 +111,5 @@ From the string show copy the value after "get_uri". Then create a file: `set_co
 airflow connections add aws_credentials --conn-uri '<COPIED_LINE>'
 airflow connections add redshift --conn-uri '<COPIED_LINE>'
 ```
+### Run The DAG
+ <p align="center" width="100%"> <img width="100%" src="https://github.com/UsernameNotFoundError/UdacityDataPipelinesProject/blob/master/airflowdag.png"> </p>
