@@ -1,2 +1,1 @@
-airflow connections add aws_credentials --conn-uri "aws://AKIAULVBJEN4B4BHPUHQ:rrZ0MDdKf95p3hdURjP2MOCZvNHVWShHxuUuI1em@"
-airflow connections add redshift --conn-uri "redshift://awsuser:R3dsh1ft@default.299912209272.us-east-1.redshift-serverless.amazonaws.com:5439/dev"
+
