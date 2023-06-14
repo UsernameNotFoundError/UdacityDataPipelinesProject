@@ -7,6 +7,8 @@ dbinit.py
 initdb.py
 secrets.py
 webserver_config.py
+# AWS & Redshift keys
+set_connections.sh
 
 # Airflow sqlite databases
 airflow.db
