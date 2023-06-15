@@ -1,6 +1,7 @@
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
+from airflow.secrets.metastore import MetastoreBackend
 
 
 class StageToRedshiftOperator(BaseOperator):
@@ -23,18 +24,18 @@ class StageToRedshiftOperator(BaseOperator):
     ):
         super().__init__(*args, **kwargs)
         self.redshift_conn_id = redshift_conn_id
-        self.aws_credentials_id = aws_credentials_id
+        metastoreBackend = MetastoreBackend()
+        self.aws_connection = metastoreBackend.get_connection(aws_credentials_id)
         self.s3_bucket_name = s3_bucket_name
         self.s3_key = s3_key
-        self.sql_command = \
+        self.sql_command = sql_command if sql_command else   \
                 f"""
                 COPY staging_songs FROM 's3://{self.s3_bucket_name }/{self.s3_key}' 
-                CREDENTIALS 'aws_iam_role={self.aws_credentials_id}'
+                CREDENTIALS 'aws_access_key_id={self.aws_connection.login};aws_secret_access_key={self.aws_connection.password}'
                 FORMAT AS json 'auto'
                 TRUNCATECOLUMNS
                 compupdate off region 'us-east-1';
-                """\
-                if sql_command else sql_command 
+                """
         
 
     def execute(self, context : dict) -> None:
@@ -45,13 +46,13 @@ class StageToRedshiftOperator(BaseOperator):
         """
         try:
             self.log.info("Copying data from S3 to Redshift")
+            self.log.info(vars(self.aws_connection))
             redshift_hook = PostgresHook("redshift")
             redshift_hook.run(self.sql_command)
             self.log.info("Finished Copying data from S3 to Redshift")
         except Exception as e:
             self.log.info(f"Error while Copying data from S3 to Redshift:\n{e}")
-        
-        
+            assert()        
 
 
 
